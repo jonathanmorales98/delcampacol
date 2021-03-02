@@ -8,6 +8,46 @@ const routes: Routes = [
   },  {
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+  },
+  {
+    path: 'index',
+    loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
+  },
+  {
+    path: 'registrto',
+    loadChildren: () => import('./registrto/registrto.module').then( m => m.RegistrtoPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'noticias',
+    loadChildren: () => import('./noticias/noticias.module').then( m => m.NoticiasPageModule)
+  },
+  {
+    path: 'mercado',
+    loadChildren: () => import('./mercado/mercado.module').then( m => m.MercadoPageModule)
+  },
+  {
+    path: 'publicaciones',
+    loadChildren: () => import('./publicaciones/publicaciones.module').then( m => m.PublicacionesPageModule)
+  },
+  {
+    path: 'precios',
+    loadChildren: () => import('./precios/precios.module').then( m => m.PreciosPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'nueva-publicacion',
+    loadChildren: () => import('./nueva-publicacion/nueva-publicacion.module').then( m => m.NuevaPublicacionPageModule)
+  },
+  {
+    path: 'configuraciones',
+    loadChildren: () => import('./configuraciones/configuraciones.module').then( m => m.ConfiguracionesPageModule)
   }
 
 ];
