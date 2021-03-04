@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>nueva_publicacion</ion-title>
+    <ion-title>Nueva Publicación</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <form>
+      <ion-item>
+        <ion-label>Nombre de la publicación: </ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Selecciona el tipo de publicación:</ion-label>
+        <ion-select placeholder="Selecciona una">
+          <ion-select-option>Cultivo</ion-select-option>
+          <ion-select-option>Oferta</ion-select-option>
+          <ion-select-option>Pedido</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ingresa una descripción:</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ingresa cantidad diponible:</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha de disponibilidad:</ion-label>
+          <ion-input type="date"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Adjunte una foto:</ion-label>
+          <ion-input type="file"></ion-input>
+      </ion-item>
+    </form>
+  </ion-card>
 
 </ion-content>
