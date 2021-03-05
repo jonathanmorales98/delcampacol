@@ -1,9 +1,92 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>registrto</ion-title>
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-content>
+        <h1>
+          Por favor ingrese todos los datos para realizar un óptimo registro.
+        </h1>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <form>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Nombre:</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label>Apellido:</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Correo electronico:</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Número de contacto:</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Contraseña:</ion-label>
+                <ion-input type="pasword"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Repita la contraseña:</ion-label>
+                <ion-input type="pasword"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Selecciona el tipo de usuario:</ion-label>
+                <ion-select placeholder="Selecciona una">
+                  <ion-select-option>Cosechador</ion-select-option>
+                  <ion-select-option>Comerciante</ion-select-option>
+                  <ion-select-option>Comprador</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+            <ion-row>
+              <ion-col>
+    
+              </ion-col>
+              <ion-col>
+                <ion-button type="submit" expand="block">
+                  Registrarse
+                </ion-button>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+      </form>
 
+    </ion-card-content>
+  </ion-card>
 </ion-content>
