@@ -8,16 +8,24 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'noticias',
+        loadChildren: () => import('../noticias/noticias.module').then(m => m.NoticiasPageModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'mercado',
+        loadChildren: () => import('../mercado/mercado.module').then(m => m.MercadoPageModule)
       },
       {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'publicaciones',
+        loadChildren: () => import('../publicaciones/publicaciones.module').then(m => m.PublicacionesPageModule)
+      },
+      {
+        path: 'precios',
+        loadChildren: () => import('../precios/precios.module').then(m => m.PreciosPageModule)
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('../perfil/perfil.module').then(m => m.PerfilPageModule)
       },
       {
         path: '',
