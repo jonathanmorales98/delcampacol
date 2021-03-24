@@ -10,19 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
 
-  itemRef: any;
-
   loginForm: FormGroup
 
-  constructor(private db: AngularFireDatabase, private auth:AngularFireAuth, private fb:FormBuilder) { }
+  constructor(private auth:AngularFireAuth, private fb:FormBuilder) { }
 
   ngOnInit() {
-    this.itemRef = this.db.object('item');
-    this.itemRef.snapshotChanges().subscribe(action => {
-      console.log(action.type);
-      console.log(action.key)
-      console.log(action.payload.val())
-    });
 
     this.loginForm = this.fb.group(
       {
@@ -34,7 +26,13 @@ export class LoginPage implements OnInit {
 
   login()
   {
-    
+    this.auth.signInWithEmailAndPassword(
+      this.loginForm.controls['email'].value,
+      this.loginForm.controls['pass'].value).then(userData=>
+      {
+        console.log(userData);
+      })
+    console.log(this.loginForm.value)
   }
 
 }
