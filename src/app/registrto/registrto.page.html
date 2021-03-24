@@ -7,66 +7,59 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-        <h1>
+        <h3 >
           Por favor ingrese todos los datos para realizar un óptimo registro.
-        </h1>
+        </h3>
     </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-content>
-      <form>
+      <form [formGroup]="regsiterForm">
         <ion-grid>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-label>Nombre:</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" placeholder="Nombre:"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col>
               <ion-item>
-                <ion-label>Apellido:</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-item>
-                <ion-label>Correo electronico:</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" placeholder="Apellido:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-label>Número de contacto:</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="email" placeholder="Correo electronico:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-label>Contraseña:</ion-label>
-                <ion-input type="pasword"></ion-input>
+                <ion-input type="number" placeholder="Número de contacto:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-label>Repita la contraseña:</ion-label>
-                <ion-input type="pasword"></ion-input>
+                <ion-input type="password" placeholder="Contraseña:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-label>Selecciona el tipo de usuario:</ion-label>
-                <ion-select placeholder="Selecciona una">
+                <ion-input type="password" placeholder="Repita la contraseña:"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-select placeholder="Selecciona eltipo de usuario:">
                   <ion-select-option>Cosechador</ion-select-option>
                   <ion-select-option>Comerciante</ion-select-option>
                   <ion-select-option>Comprador</ion-select-option>
@@ -76,13 +69,13 @@
           </ion-row>
             <ion-row>
               <ion-col>
-    
-              </ion-col>
-              <ion-col>
-                <ion-button type="submit" expand="block">
+                <ion-button (click)='register()' expand="block" shape="round">
                   Registrarse
                 </ion-button>
               </ion-col>
+            </ion-row>
+            <ion-row class='input-container ion-justify-content-center ion-align-items-center'>
+                <h6>¿Ya tiene una cuenta? <a href="/login">Inicie sesion</a></h6>
             </ion-row>
         </ion-grid>
       </form>
