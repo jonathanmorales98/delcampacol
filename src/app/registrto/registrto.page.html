@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/index"></ion-back-button>
+    </ion-button>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,52 +17,52 @@
   </ion-card>
   <ion-card>
     <ion-card-content>
-      <form [formGroup]="regsiterForm">
+      <form [formGroup]="registerForm">
         <ion-grid>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-input type="text" placeholder="Nombre:"></ion-input>
+                <ion-input formControlName='name' type="text" placeholder="Nombre:"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col>
               <ion-item>
-                <ion-input type="text" placeholder="Apellido:"></ion-input>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-item>
-                <ion-input type="email" placeholder="Correo electronico:"></ion-input>
+                <ion-input formControlName='lastname' type="text" placeholder="Apellido:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-input type="number" placeholder="Número de contacto:"></ion-input>
+                <ion-input formControlName='email' type="email" placeholder="Correo electronico:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-input type="password" placeholder="Contraseña:"></ion-input>
+                <ion-input formControlName='number' type="number" placeholder="Número de contacto:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-input type="password" placeholder="Repita la contraseña:"></ion-input>
+                <ion-input formControlName='pass' type="password" placeholder="Contraseña:"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-select placeholder="Selecciona eltipo de usuario:">
+                <ion-input formControlName='conPass' type="password" placeholder="Repita la contraseña:"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-select formControlName='type' placeholder="Selecciona eltipo de usuario:">
                   <ion-select-option>Cosechador</ion-select-option>
                   <ion-select-option>Comerciante</ion-select-option>
                   <ion-select-option>Comprador</ion-select-option>

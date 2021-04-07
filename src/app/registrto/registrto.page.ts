@@ -11,12 +11,13 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegistrtoPage implements OnInit {
 
+  registerForm: FormGroup;
+
   constructor(private auth:AngularFireAuth, private fb:FormBuilder, private alertController:AlertController, private db:AngularFireDatabase) { }
 
-  regsiterForm: FormGroup;
 
   ngOnInit() {
-    this.regsiterForm = this.fb.group(
+    this.registerForm = this.fb.group(
       {
         name:['', Validators.required],
         lastname:['', Validators.required],
@@ -24,25 +25,28 @@ export class RegistrtoPage implements OnInit {
         email:['', Validators.required],
         pass:['', Validators.required],
         conPass:['', Validators.required],
-        type:['', Validators.required],
+        type:['', Validators.required]
       }
     )
   }
 
   register()
   {
+
+    console.log(this.registerForm)
     let user = 
     {
-      email: this.regsiterForm.controls['email'].value,
-      password: this.regsiterForm.controls['password'].value
+      email: this.registerForm.controls['email'].value,
+      password: this.registerForm.controls['pass'].value
     }
-    if(user.password == this.regsiterForm.controls['conPass'].value)
+    console.log(user)
+    if(user.password == this.registerForm.controls['conPass'].value)
     {
       this.auth.createUserWithEmailAndPassword(user.email, user.password).then(userData=>
         {
           this.registerAlert('Correcto', "El usuario ha sido creado correctamente")
           //this.db.database.ref('Users').push(this.regsiterForm.value)
-          this.db.database.ref('Users/'+ userData.user.uid).set(this.regsiterForm.value)
+          this.db.database.ref('Users/'+ userData.user.uid).set(this.registerForm.value)
           console.log(userData)
         }).catch(e=>
           {
