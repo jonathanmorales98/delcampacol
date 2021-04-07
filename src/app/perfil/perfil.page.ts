@@ -16,9 +16,9 @@ export class PerfilPage implements OnInit {
 
   logout()
   {
-    this.auth.signOut().then(userData=>
+    this.auth.signOut().then(userDatas=>
       {
-        console.log(userData)
+        console.log(userDatas)
         console.log("salir")
       }).catch(e=>
         {
