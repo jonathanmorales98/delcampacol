@@ -1,7 +1,8 @@
 {
   "name": "Delcampacol",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular",
   "id": "9c60321d"
