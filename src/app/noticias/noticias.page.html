@@ -5,33 +5,25 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-item min-height="75%">
-      <img src="assets/img/Image.png" alt="" width="100%">
+  <ion-card *ngFor="let item of array" (click)="openURL(item.url)">
+    <ion-item min-height="75%" >
+      <ion-img [src]="item.urlToImage" alt="" width="100%" class="ion-padding"></ion-img>
+      <!-- <ion-img [src]="item.picture.medium" alt="" width="100%"></ion-img> -->
+      <!-- <ion-img [src]="item.image" alt="" width="100%"></ion-img> -->
     </ion-item>
     <ion-card-header>
-      <ion-card-title>titulo</ion-card-title>
+      <ion-card-title>{{item.title}}</ion-card-title>
+      <!-- <ion-card-title>{{item.name.first}}</ion-card-title> -->
+      <!-- <ion-card-title>{{item.title}}</ion-card-title> -->
     </ion-card-header>
     <ion-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero officiis magni sed inventore eos molestias optio esse accusamus saepe natus reiciendis, accusantium velit dolorum ad explicabo exercitationem sint odio dicta.
+      {{item.description}}
     </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img src="assets/img/Image.png" alt=""/>
-    <ion-card-header>
-      <ion-card-title>titulo</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero officiis magni sed inventore eos molestias optio esse accusamus saepe natus reiciendis, accusantium velit dolorum ad explicabo exercitationem sint odio dicta.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <img src="assets/img/Image.png" alt=""/>
-    <ion-card-header>
-      <ion-card-title>titulo</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero officiis magni sed inventore eos molestias optio esse accusamus saepe natus reiciendis, accusantium velit dolorum ad explicabo exercitationem sint odio dicta.
-    </ion-card-content>
+    <!-- <ion-card-content>
+      {{item.phone}}
+    </ion-card-content> -->
+    <!-- <ion-card-content>
+      {{item.description}}
+    </ion-card-content> -->
   </ion-card>
 </ion-content>
