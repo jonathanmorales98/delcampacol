@@ -12,6 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
+    HttpClientModule, //seinstancia para la API
     ReactiveFormsModule, //se intancian estas dos para que funcione los formularios
     FormsModule,        //2
     AngularFireModule.initializeApp(environment.firebaseConfig), 
@@ -28,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireDatabaseModule, 
     AngularFireStorageModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [InAppBrowser,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
