@@ -5,7 +5,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },  {
+  },
+  {
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   },
@@ -48,6 +49,18 @@ const routes: Routes = [
   {
     path: 'configuraciones',
     loadChildren: () => import('./configuraciones/configuraciones.module').then( m => m.ConfiguracionesPageModule)
+  },
+  {
+    path: 'index-cosechador',
+    loadChildren: () => import('./index-cosechador/index-cosechador.module').then( m => m.IndexCosechadorPageModule)
+  },
+  {
+    path: 'index-comerciante',
+    loadChildren: () => import('./index-comerciante/index-comerciante.module').then( m => m.IndexComerciantePageModule)
+  },
+  {
+    path: 'index-comprador',
+    loadChildren: () => import('./index-comprador/index-comprador.module').then( m => m.IndexCompradorPageModule)
   }
 
 ];
