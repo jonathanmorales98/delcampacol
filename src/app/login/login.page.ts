@@ -30,8 +30,10 @@ export class LoginPage implements OnInit {
       this.loginForm.controls['email'].value,
       this.loginForm.controls['pass'].value).then(userData=>
       {
+        console.log("Inicio sesion")
         console.log(userData);
       })
+    console.log("formulario")
     console.log(this.loginForm.value)
   }
 
