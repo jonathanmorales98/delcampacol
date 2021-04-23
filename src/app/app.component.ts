@@ -43,9 +43,16 @@ export class AppComponent {
         {
           this.user.setUid(e.uid)
           localStorage.setItem("uid", e.uid)
-          if(this.type == "Cosechador")
+          if(this.type == 'Cosechador')
           {
-            this.router.navigate(['/index-cosechador'], {replaceUrl:true})
+            console.log("Redirecciona a cosechador");
+            this.router.navigate(['/index-cosechador'], {replaceUrl:true}).then(nav =>
+              {
+                console.log("bien direccionado", nav);
+              }, err =>
+              {
+                console.log("no funciono xd", err);
+              });
           }
           //this.router.navigate(['/tabs/noticias'], {replaceUrl:true}) //el replace es para que no se regrese con las flechas del celular
         }
