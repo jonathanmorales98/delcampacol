@@ -1,9 +1,65 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>IndexComerciante</ion-title>
+    <ion-title>Comerciante</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      Bienvenido a Delcampacol Comerciante
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card>
+              <ion-label>Noticias</ion-label>
+              <ion-item [routerLink]="['/tabs/noticias']" routerLinkActive="router-link-active" class="ion-activated">
+                <ion-img src="assets/img/news.png"></ion-img>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card>
+              <ion-item [routerLink]="['/tabs/mercado']" routerLinkActive="router-link-active" class="ion-activated">
+                <ion-label>Mercado</ion-label>
+                <ion-img src="assets/img/mercado.jpg"></ion-img>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card>
+              <ion-item [routerLink]="['/tabs/precios']" routerLinkActive="router-link-active">
+                <ion-label>Precios</ion-label>
+                <ion-img src="assets/img/precios.jpg"></ion-img>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card>
+              <ion-item [routerLink]="['/tabs/publicaciones']" routerLinkActive="router-link-active">
+                <ion-label>Mis ofertas</ion-label>
+                <ion-img src="assets/img/ofertas.png"></ion-img>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card>
+              <ion-item [routerLink]="['/tabs/perfil']" routerLinkActive="router-link-active">
+                <ion-label>Mi perfil</ion-label>
+                <ion-img src="assets/img/perfil.png"></ion-img>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
