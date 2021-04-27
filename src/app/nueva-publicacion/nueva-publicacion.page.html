@@ -6,36 +6,50 @@
 
 <ion-content>
   <ion-card>
-    <form>
+    <form [formGroup]="productForm">
       <ion-item>
-        <ion-label>Nombre del producto: </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input [(ngModel)]="productos.name"  placeholder="Nombre del producto:" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Selecciona el tipo del producto:</ion-label>
-        <ion-select placeholder="Selecciona una">
+        <ion-select [(ngModel)]="productos.type" placeholder="Selecciona una">
           <ion-select-option>Cultivo</ion-select-option>
           <ion-select-option>Oferta</ion-select-option>
           <ion-select-option>Pedido</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>Ingresa una descripción:</ion-label>
-        <ion-textarea></ion-textarea>
+        <ion-textarea [(ngModel)]="productos.descript" placeholder="Ingresa una descripción:"></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-label>Ingresa cantidad diponible:</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input [(ngModel)]="productos.count" placeholder="Ingresa cantidad diponible:" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Fecha de disponibilidad:</ion-label>
-          <ion-input type="date"></ion-input>
+          <ion-label>Fecha de disponibilidad:
+            <ion-input [(ngModel)]="productos.date"  palceholder="Fecha de disponibilidad:" type="date"></ion-input>
+          </ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>Adjunte una foto:</ion-label>
-          <ion-input type="file"></ion-input>
+        <ion-label>Adjunte una foto:
+          <!-- <ion-input type="file" accept="image/*" (ionChange)="captureImage($event)"></ion-input> -->
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <label for="file-upload">
+              <ion-icon slot="icon-only" name="images"></ion-icon>
+            </label>
+            <input type="file" id="file-upload" style="display: none" accept="image/*" (change)="captureImage($event)">
+          </ion-button>
+        </ion-buttons>
       </ion-item>
     </form>
+    <ion-item *ngIf="image != ''">
+      <img [src]="image" alt="">
+    </ion-item>
   </ion-card>
+
+    <ion-button (click)='registerProduct()' expand="block" shape="round">
+      Registrar Producto
+    </ion-button>
+ 
 
 </ion-content>
