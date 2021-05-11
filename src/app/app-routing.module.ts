@@ -47,6 +47,10 @@ const routes: Routes = [
     loadChildren: () => import('./nueva-publicacion/nueva-publicacion.module').then( m => m.NuevaPublicacionPageModule)
   },
   {
+    path: 'nueva-publicacion/:type/:name',
+    loadChildren: () => import('./nueva-publicacion/nueva-publicacion.module').then( m => m.NuevaPublicacionPageModule)
+  },
+  {
     path: 'configuraciones',
     loadChildren: () => import('./configuraciones/configuraciones.module').then( m => m.ConfiguracionesPageModule)
   },
@@ -71,3 +75,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
+
+// 04/05/2021
+// duplique el patch de nueva publicacion y a la copia le paso dos valores
