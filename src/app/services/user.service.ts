@@ -53,4 +53,19 @@ export class UserService {
       })).subscribe();
     })
   }
+
+  removeImage(file: any, path: string, name: string): Promise<string>
+  {
+    return new Promise(resolve =>
+    {
+      const filePath = path + '/' + name;
+      const ref = this.fs.ref(filePath);
+      ref.delete();
+      console.log('hasta llega :(');
+      //const task = ref.put(file);
+      
+
+      
+    })
+  }
 }
