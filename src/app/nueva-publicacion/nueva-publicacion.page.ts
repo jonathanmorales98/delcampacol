@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nueva-publicacion',
@@ -30,7 +32,39 @@ export class NuevaPublicacionPage implements OnInit {
     uid:''
   };
 
-  constructor(private user:UserService, private fb:FormBuilder, private db:AngularFireDatabase, private alertController:AlertController) { }
+  name:string='';
+  type:string='';
+  descript:string='';
+  count:string='';
+  date:string='';
+  photo:string='';
+  uid:string='';
+
+  val: boolean = false;
+
+  constructor(private user:UserService, private fb:FormBuilder, private db:AngularFireDatabase, private alertController:AlertController, private active:ActivatedRoute, private route:Router) 
+  {
+    active.params.subscribe(key=>
+    {
+      console.log(key);
+      if(key.type!=null){
+        db.database.ref(key.type + '/' + user.getUid() + "/" + key.name).once('value', (snap)=>{
+          this.val = true;
+          console.log(snap.val());
+          this.productos.name = this.name = snap.val().name
+          this.productos.type = this.type = snap.val().type
+          this.productos.descript = this.descript = snap.val().descript
+          this.productos.count = this.count = snap.val().count
+          this.productos.date = this.date = snap.val().date
+          this.productos.photo = this.photo = snap.val().photo
+          this.productos.uid = this.uid = snap.val().uid
+          console.log(this.name);
+          console.log(this.val);
+          console.log(this.photo);
+        })
+      }
+    })
+  }
 
   ngOnInit() 
   {
@@ -79,23 +113,89 @@ export class NuevaPublicacionPage implements OnInit {
     this.productos.photo = this.res
     this.productos.uid = this.user.getUid()
 
-    this.db.database.ref(path + '/'+ this.productos.uid + '/' + name).set(this.productos).catch(e=>
+    this.db.database.ref(path + '/'+ this.productos.uid + '/' + name).set(this.productos).then(f=>
+    {
+      this.registerAlert('Completado', 'Se ha completado la publicación')
+    }).catch(e=>
     {
       this.registerAlert('Error', e.message)
     })
     
     console.log(this.products);
     console.log(this.productos);
+
+    this.productForm.reset();
+
+    //this.route.navigate(['/publicaciones']);
+    
+  }
+
+  async updateProduct()
+  {
+    const path = this.productos.type;
+    const name = this.productos.name;
+    //const file = event.target.files[0];
+    if(this.image != '')
+    {
+      this.user.removeImage('', this.type, this.name);
+      
+      console.log("si vamos bien xd");
+      this.res = await this.user.uploadImage(this.file, path, name);
+      console.log("este es el URL de la nueva imagen xd", this.res);
+      this.productos.photo = this.res
+    }
+    else
+    {
+      this.productos.photo = this.photo
+    }
+    
+    
+    this.productos.uid = this.user.getUid()
+    console.log(name);
+    console.log(this.productos);
+
+    this.db.database.ref(path + '/'+ this.productos.uid + '/' + name).set(this.productos).then(f=>
+    {
+      this.registerAlert('Completado', 'Se ha completado la actualización')
+    }).catch(e=>
+    {
+      this.registerAlert('Error', e.message)
+    })
+    
+    console.log(this.products);
+    console.log(this.productos);
+
+    this.productForm.reset();
+
+    //this.route.navigate(['/publicaciones']);
+
   }
 
   async registerAlert(status, sms) {
+    // const alert = await this.alertController.create({
+    //   cssClass: 'my-custom-class',
+    //   header: status,
+    //   subHeader: sms,
+    //   buttons: ['OK']
+    // });
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
       header: status,
-      subHeader: sms,
-      buttons: ['OK']
+      message: sms,
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            console.log('redireccionado xd');
+            //this.route.navigate(['<ion-back-button defaultHref="/publicaciones"></ion-back-button>']);
+
+          }
+        }
+      ]
     });
 
     await alert.present();
   }
 }
+
+// 04/05/2021
+// agregue una alerta que avise que se registro bien
