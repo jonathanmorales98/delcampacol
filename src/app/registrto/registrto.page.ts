@@ -16,7 +16,8 @@ export class RegistrtoPage implements OnInit {
   constructor(private auth:AngularFireAuth, private fb:FormBuilder, private alertController:AlertController, private db:AngularFireDatabase) { }
 
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.registerForm = this.fb.group(
       {
         name:['', Validators.required],
@@ -54,6 +55,8 @@ export class RegistrtoPage implements OnInit {
             console.log(e)
           })
     }
+
+    this.registerForm.reset();
     
   }
 
