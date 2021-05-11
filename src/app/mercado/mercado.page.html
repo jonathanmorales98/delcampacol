@@ -10,55 +10,38 @@
     <ion-card-header>
         <ion-grid>
           <ion-row>
-          <ion-col>
-            <ion-button>Cosechas</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button>Ofertas</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button>Pedidos</ion-button>
-          </ion-col>
+            <ion-col>
+              <ion-button (click)="cosechas()">Cosechas</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button (click)="ofertas()">Ofertas</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button (click)="pedidos()">Pedidos</ion-button>
+            </ion-col>
           </ion-row>
       </ion-grid>
     </ion-card-header>
-    <ion-card-content>
-        <ion-card>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maxime repellat, sint eaque accusantium architecto iusto nam debitis corporis voluptate vel blanditiis, impedit cumque quam ab minima! Obcaecati, laboriosam provident.</p>
-              </ion-col>
-              <ion-col>
-                <ion-img src="assets/img/Image.png"></ion-img>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-        <ion-card>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maxime repellat, sint eaque accusantium architecto iusto nam debitis corporis voluptate vel blanditiis, impedit cumque quam ab minima! Obcaecati, laboriosam provident.</p>
-              </ion-col>
-              <ion-col>
-                <ion-img src="assets/img/Image.png"></ion-img>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-        <ion-card>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maxime repellat, sint eaque accusantium architecto iusto nam debitis corporis voluptate vel blanditiis, impedit cumque quam ab minima! Obcaecati, laboriosam provident.</p>
-              </ion-col>
-              <ion-col>
-                <ion-img src="assets/img/Image.png"></ion-img>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-    </ion-card-content>
   </ion-card>
+  <h3 *ngIf="productos == []">Escoja una opción</h3>
+  <ion-card *ngFor="let item of productos">
+    <ion-item *ngIf="item == null">No hay productos, vuelva pronto.</ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <p>{{item.name}}</p>
+          </ion-col>
+          <ion-col>
+            <ion-img src="{{item.photo}}"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <p>{{item.descript}}</p>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-card>
+
+  
 </ion-content>
