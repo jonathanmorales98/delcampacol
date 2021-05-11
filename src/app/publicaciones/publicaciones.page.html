@@ -8,56 +8,39 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa et sequi voluptatum necessitatibus voluptatibus hic consequuntur earum distinctio maxime omnis sunt est esse minima neque accusantium amet ad, natus laboriosam!</p>
-          </ion-col>
-          <ion-col>
-            <ion-img src="assets/img/Image.png"></ion-img>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam esse, necessitatibus, laboriosam laudantium accusamus sint assumenda, ullam exercitationem ipsa natus beatae pariatur voluptas nobis quas numquam deserunt? Architecto, iure iste.</p>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa et sequi voluptatum necessitatibus voluptatibus hic consequuntur earum distinctio maxime omnis sunt est esse minima neque accusantium amet ad, natus laboriosam!</p>
-          </ion-col>
-          <ion-col>
-            <ion-img src="assets/img/Image.png"></ion-img>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam esse, necessitatibus, laboriosam laudantium accusamus sint assumenda, ullam exercitationem ipsa natus beatae pariatur voluptas nobis quas numquam deserunt? Architecto, iure iste.</p>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa et sequi voluptatum necessitatibus voluptatibus hic consequuntur earum distinctio maxime omnis sunt est esse minima neque accusantium amet ad, natus laboriosam!</p>
-          </ion-col>
-          <ion-col>
-            <ion-img src="assets/img/Image.png"></ion-img>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam esse, necessitatibus, laboriosam laudantium accusamus sint assumenda, ullam exercitationem ipsa natus beatae pariatur voluptas nobis quas numquam deserunt? Architecto, iure iste.</p>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
 
+  <ion-item-sliding *ngFor="let item of myProducts">
+    <ion-item-options side="start" >
+      <ion-item-option color="warning" [routerLink]="['/nueva-publicacion', item.type, item.name]" ><ion-icon  style="font-size:30px"  name="create-outline"></ion-icon></ion-item-option>
+      
+    </ion-item-options>
+
+    <ion-card >
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p>{{item.name}}</p>
+            </ion-col>
+            <ion-col>
+              <ion-img src="{{item.photo}}"></ion-img>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <p>{{item.descript}}</p>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="delete(item.type, item.name)"><ion-icon style="font-size:30px" name="trash-outline"></ion-icon></ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  
 </ion-content>
+
+
+<!-- 04/05/2021
+agregue el ngFor en una card y las variables -->
