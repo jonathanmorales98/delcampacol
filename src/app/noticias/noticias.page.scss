@@ -1,4 +1,9 @@
 ion-item{
     min-height: -50%;
-
 }
+ion-content{
+    --background: url(../../assets/img/bgfinal.jpg) no-repeat center/cover fixed;
+}
+.cardopac{     
+    background: rgba(255,255,255,0.8);      
+} 

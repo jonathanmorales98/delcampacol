@@ -1,11 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Delcampacol</ion-title>
-  </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
+<ion-content padding class="background">
+  <ion-img src="../../assets/img/logo2.png" class="logo"></ion-img>
+  <!--<ion-card class="cardopac">
     <ion-card-header>
       <h3>Bienvenido a Delcampacol, desliza para ver nuestros servicios.</h3>
     </ion-card-header>
@@ -73,18 +71,17 @@
       
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-card-content>
+  -->
+
       <ion-grid>
         <ion-row>
         <ion-col>
-          <ion-button [routerLink]="['/registrto']" expand="block">Registrarse</ion-button>
+          <ion-button [routerLink]="['/registrto']" shape="round" color="primary" expand="full">Registrarse</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button [routerLink]="['/login']" expand="block">Iniciar sesion</ion-button>
+          <ion-button [routerLink]="['/login']" shape="round" color="primary" expand="full" >Iniciar sesión</ion-button>
         </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-card-content>
-  </ion-card>
 </ion-content>
+

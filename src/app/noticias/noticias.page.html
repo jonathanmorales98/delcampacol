@@ -1,11 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>NOTICIAS</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/index-cosechador"></ion-back-button>
+    </ion-button>
+    <ion-title>Nocias</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card *ngFor="let item of array" (click)="openURL(item.url)">
+<ion-content class="background">
+  <ion-card *ngFor="let item of array" (click)="openURL(item.url)" class="cardopac">
     <ion-item min-height="75%" >
       <ion-img [src]="item.urlToImage" alt="" width="100%" class="ion-padding"></ion-img>
       <!-- <ion-img [src]="item.picture.medium" alt="" width="100%"></ion-img> -->

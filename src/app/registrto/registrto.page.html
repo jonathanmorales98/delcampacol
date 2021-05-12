@@ -3,7 +3,7 @@
     <ion-button slot="start">
       <ion-back-button defaultHref="/index"></ion-back-button>
     </ion-button>
-    <ion-title>Registro</ion-title>
+    <ion-title>Registrarse</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -78,7 +78,7 @@
               </ion-col>
             </ion-row>
             <ion-row class='input-container ion-justify-content-center ion-align-items-center'>
-                <h6>¿Ya tiene una cuenta? <a href="/login">Inicie sesion</a></h6>
+                <h6>¿Ya tiene una cuenta? <a [routerLink]="['/login']">Inicie sesion</a></h6>
             </ion-row>
         </ion-grid>
       </form>

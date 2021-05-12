@@ -3,21 +3,20 @@
     <ion-button slot="start">
       <ion-back-button defaultHref="/index"></ion-back-button>
     </ion-button>
-    <ion-title>Iniciar sesion</ion-title>
+    <ion-title>Iniciar sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <h2>Ingrese sus datos</h2>
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]="loginForm">
         <ion-grid>
           <ion-row>
             <ion-col>
-              <ion-img src="assets/img/Image.png"></ion-img>
+              <ion-img src="../../assets/img/logo2.png"></ion-img>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -42,7 +41,7 @@
             </ion-col>
           </ion-row>
           <ion-row class='input-container ion-justify-content-center ion-align-items-center'> 
-              <h6>¿No tiene cuenta? <a href="/registrto">Registrese</a></h6>
+              <h6>¿No tiene cuenta? <a [routerLink]="['/registrto']">Registrese</a></h6>
           </ion-row>
         </ion-grid>
       </form>  
