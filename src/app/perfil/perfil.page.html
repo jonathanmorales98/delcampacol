@@ -5,18 +5,43 @@
     </ion-button>
     <ion-title>perfil</ion-title>
 
-    <ion-buttons slot="end">
+    <!-- <ion-buttons slot="end">
       <ion-button><ion-icon name="cog-outline"></ion-icon></ion-button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <img src="assets/img/Image.png" width="200px" alt=""/>
-    <ion-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis commodi mollitia aperiam corporis maiores neque sunt culpa numquam totam laboriosam. Perspiciatis vitae dignissimos soluta inventore in officiis officia odio assumenda incidunt obcaecati laboriosam architecto ut consequatur libero temporibus tempora veniam deleniti ad, praesentium quaerat natus eaque. Quibusdam, atque! Amet, rem..
-    </ion-card-content>
+  <ion-card >
+    <ion-grid>
+      <ion-row class='input-container ion-justify-content-center ion-align-items-center'>
+        <h1 >{{name}} {{lastname}}</h1>
+      </ion-row>
+      <ion-row class='input-container ion-justify-content-center ion-align-items-center'>
+        <h3 >{{type}}</h3>
+      </ion-row>
+      <ion-row class='input-container ion-justify-content-center ion-align-items-center'>
+        <img src="assets/img/farmer.png" width="200px" alt="" class='ion-justify-content-center'/>
+      </ion-row>
+      <hr>
+      <ion-card>
+        <ion-row>
+          <ion-col size="1"></ion-col>
+          <ion-col><h6>{{email}}</h6></ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="1"></ion-col>
+          <ion-col><h6>{{number}}</h6></ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-card>
+      <hr>
+
+    </ion-grid>
   </ion-card>
   <ion-button (click)='logout()' expand="block" shape="round">Cerrar Sesion</ion-button>
+  
+  <p style="padding-left:'10px'">Version 1.0.0</p>
+
 </ion-content>

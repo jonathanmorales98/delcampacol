@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-card>
-    <form [formGroup]="productForm" id="form">
+    <form id="form">
       <ion-item>
         <ion-input *ngIf="name == ''" [(ngModel)]="productos.name" placeholder="Nombre del producto:" type="text"></ion-input>
         <ion-input *ngIf="name != ''" [(ngModel)]="name"  type="text" disabled="true"></ion-input>

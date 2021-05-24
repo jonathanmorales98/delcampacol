@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content class="background">
-  <ion-searchbar placeholder="¿Buscas algo en especial?"></ion-searchbar>
+  <!-- <ion-searchbar placeholder="¿Buscas algo en especial?" animated (ionChange)="buscar($event)"></ion-searchbar> -->
 
         <ion-grid>
           <ion-row>
@@ -16,24 +16,26 @@
               <ion-button (click)="cosechas()">Cosechas</ion-button>
             </ion-col>
             <ion-col size="4">
-              <ion-button (click)="ofertas()">Ofertas</ion-button>
+              <ion-button (click)="ofertas()">Comercio</ion-button>
             </ion-col>
-            <ion-col size="3">
-              <ion-button (click)="pedidos()">Pedidos</ion-button>
+            <ion-col size="4">
+              <ion-button (click)="pedidos()">Ofertas</ion-button>
             </ion-col>
           </ion-row>
       </ion-grid>
     
   <h3 *ngIf="productos == []">Escoja una opción</h3>
-  <ion-card *ngFor="let item of productos">
+  <ion-card *ngFor="let item of productos | filtro:textoBuscar" (click)="info(item.uid)">
     <ion-item *ngIf="item == null">No hay productos, vuelva pronto.</ion-item>
     <ion-item>
       <ion-grid>
         <ion-row>
           <ion-col>
             <p>{{item.name}}</p>
+            <p>Cantidad: {{item.count}}</p>
+            <p>Disponibilidad: {{item.date}}</p>
           </ion-col>
-          <ion-col>
+          <ion-col >
             <ion-img src="{{item.photo}}"></ion-img>
           </ion-col>
         </ion-row>
@@ -41,19 +43,6 @@
           <p>{{item.descript}}</p>
         </ion-row>
       </ion-grid>
-
-        <ion-card class="cardopac">
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maxime repellat, sint eaque accusantium architecto iusto nam debitis corporis voluptate vel blanditiis, impedit cumque quam ab minima! Obcaecati, laboriosam provident.</p>
-              </ion-col>
-              <ion-col>
-                <ion-img src="assets/img/Image.png"></ion-img>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
 
     </ion-item>
   </ion-card>

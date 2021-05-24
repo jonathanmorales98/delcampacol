@@ -1,6 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NGSP_UNICODE } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 
@@ -11,21 +12,44 @@ import { finalize } from 'rxjs/operators';
 })
 export class UserService {
 
+  itemRef:any;
   uid:string
 
-  constructor(private http:HttpClient, private  fs:AngularFireStorage) {}
+  type:string;
+
+  constructor(private http:HttpClient, private  fs:AngularFireStorage, private db:AngularFireDatabase) {}
 
   setUid(_uid:string)
   {
     this.uid = _uid
     console.log("ususario: ")
     console.log(_uid)
+    //this.setType();
   }
 
   getUid()
   {
     return this.uid
   }  
+
+  setType(tuid:string)
+  {
+    console.log("uid desede la otra funcion del servicio", this.uid);
+    console.log("uid desde el servicio",tuid);
+    this.db.database.ref('Users/'+ tuid).once('value', (snapshot)=>{
+      //console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaxd");
+      //console.log(snapshot.val());
+      this.type = snapshot.val().type
+      console.log("tipo de ususario", this.type);
+      //return this.type
+    })
+    
+  }
+
+  getType()
+  {
+    return this.type
+  }
 
   getNews()
   {

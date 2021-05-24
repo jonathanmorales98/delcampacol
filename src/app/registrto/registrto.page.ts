@@ -18,6 +18,7 @@ export class RegistrtoPage implements OnInit {
 
   ngOnInit() 
   {
+    console.log("1111111111111");
     this.registerForm = this.fb.group(
       {
         name:['', Validators.required],
@@ -29,6 +30,7 @@ export class RegistrtoPage implements OnInit {
         type:['', Validators.required]
       }
     )
+    console.log("2222222222222");
   }
 
   register()
@@ -41,23 +43,30 @@ export class RegistrtoPage implements OnInit {
       password: this.registerForm.controls['pass'].value
     }
     console.log(user)
+    console.log(this.registerForm.value);
+    const vavava = this.registerForm.value;
     if(user.password == this.registerForm.controls['conPass'].value)
     {
       this.auth.createUserWithEmailAndPassword(user.email, user.password).then(userData=>
         {
           this.registerAlert('Correcto', "El usuario ha sido creado correctamente")
+          console.log(this.registerForm.value);
+          console.log(vavava);
           //this.db.database.ref('Users').push(this.regsiterForm.value)
-          this.db.database.ref('Users/'+ userData.user.uid).set(this.registerForm.value)
+          this.db.database.ref('Users/'+ userData.user.uid).set(vavava)
           console.log(userData)
         }).catch(e=>
           {
             this.registerAlert('Error', e.message)
             console.log(e)
           })
+      this.registerForm.reset();
+    }
+    else
+    {
+      this.registerAlert('Error', "Las contraseñas no coinciden")
     }
 
-    this.registerForm.reset();
-    
   }
 
   async registerAlert(status, sms) {

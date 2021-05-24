@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup
 
-  constructor(private auth:AngularFireAuth, private fb:FormBuilder) { }
+  constructor(private auth:AngularFireAuth, private fb:FormBuilder, private user:UserService) { }
 
   ngOnInit() {
 
@@ -35,6 +36,10 @@ export class LoginPage implements OnInit {
       })
     console.log("formulario")
     console.log(this.loginForm.value)
+
+    console.log("dxdxdxdxd", this.user.getUid());
+    this.user.setType(this.user.getUid());
+
   }
 
 }

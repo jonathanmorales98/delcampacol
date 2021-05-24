@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +31,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     AngularFirestoreModule, 
     AngularFireAuthModule, 
     AngularFireDatabaseModule, 
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    PipesModule
   ],
   providers: [InAppBrowser,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
