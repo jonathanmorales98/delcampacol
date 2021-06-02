@@ -3,11 +3,11 @@
     <ion-button slot="start">
       <ion-back-button defaultHref="/index-cosechador"></ion-back-button>
     </ion-button>
-    <ion-title>perfil</ion-title>
+    <ion-title>Perfil</ion-title>
 
-    <!-- <ion-buttons slot="end">
-      <ion-button><ion-icon name="cog-outline"></ion-icon></ion-button>
-    </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/info']" routerLinkActive="router-link-active" ><ion-icon name="information-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -41,7 +41,4 @@
     </ion-grid>
   </ion-card>
   <ion-button (click)='logout()' expand="block" shape="round">Cerrar Sesion</ion-button>
-  
-  <p style="padding-left:'10px'">Version 1.0.0</p>
-
 </ion-content>

@@ -65,7 +65,11 @@ const routes: Routes = [
   {
     path: 'index-comprador',
     loadChildren: () => import('./index-comprador/index-comprador.module').then( m => m.IndexCompradorPageModule)
+  },  {
+    path: 'info',
+    loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
   }
+
 
 ];
 @NgModule({

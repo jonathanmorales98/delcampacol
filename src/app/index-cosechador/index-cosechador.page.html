@@ -4,7 +4,7 @@
 
 <ion-content class="background">
   <ion-img class="logo" src="../../assets/img/logonombre.png" class="logo"></ion-img>
-      <ion-grid>
+      <!-- <ion-grid>
         <ion-row>
 
           <ion-col >
@@ -53,6 +53,49 @@
             
           </ion-col>
         </ion-row>
+      </ion-grid> -->
+
+      <ion-grid>
+        <ion-row>
+
+          <ion-col >
+            <ion-card class="menui">
+              <h5 class="texto">Mercado</h5>
+                <ion-img [routerLink]="['/tabs/mercado']" src="assets/img/mercadofi.png"></ion-img>
+                
+            </ion-card>
+            
+          </ion-col>
+
+          <ion-col >
+            <ion-card class="menui">
+              <h5 class="texto">Precios</h5>
+                <ion-img [routerLink]="['/tabs/precios']" src="assets/img/preciosfi.png"></ion-img>
+                
+            </ion-card>
+            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          
+          <ion-col >
+            <ion-card class="menui">
+              <h5 class="texto">Mis cultivos</h5>
+                <ion-img [routerLink]="['/tabs/publicaciones']" src="assets/img/cultivos.png"></ion-img>
+                
+            </ion-card>
+            
+          </ion-col>
+          <ion-col >
+            <ion-card class="menui">
+              <h5 class="texto">Mi Perfil</h5>
+                <ion-img [routerLink]="['/tabs/perfil']" src="assets/img/perfilfi.png"></ion-img>
+                
+            </ion-card>
+            
+          </ion-col>
+        </ion-row>
+      
       </ion-grid>
 
 </ion-content>

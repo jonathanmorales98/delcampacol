@@ -10,10 +10,16 @@ import { UserService } from '../services/user.service';
 })
 export class PublicacionesPage implements OnInit {
   itemRef: any;
+  itemRef1: any;
+  itemRef2: any;
   myProducts = [];
   uid: string;
 
   file:string;
+
+  proCul = [];
+  proOfer = [];
+  proPed = [];
 
 
   constructor(private db: AngularFireDatabase, private user:UserService, private alert:AlertController) { 
@@ -21,6 +27,7 @@ export class PublicacionesPage implements OnInit {
   }
 
   ngOnInit() {
+    this.myProducts = [];
     this.itemRef = this.db.object('Cultivo/' + this.uid);
       this.itemRef.snapshotChanges().subscribe(action => 
       {
@@ -28,7 +35,7 @@ export class PublicacionesPage implements OnInit {
         console.log(action.key)
         console.log(action.payload.val())
         let data = action.payload.val()
-        this.myProducts = [];
+        
         for(let i in data)
         {
           let user = data[i];
@@ -37,6 +44,41 @@ export class PublicacionesPage implements OnInit {
           this.myProducts.push(user)
         }
       });
+
+
+      this.itemRef1 = this.db.object('Oferta/' + this.uid);
+      this.itemRef1.snapshotChanges().subscribe(action => 
+      {
+        console.log(action.type);
+        console.log(action.key)
+        console.log(action.payload.val())
+        let data = action.payload.val()
+        for(let i in data)
+        {
+          let user = data[i];
+          user.key = i
+          console.log(user, i);
+          this.myProducts.push(user)
+        }
+      });
+
+
+      this.itemRef2 = this.db.object('Pedido/' + this.uid);
+      this.itemRef2.snapshotChanges().subscribe(action => 
+      {
+        console.log(action.type);
+        console.log(action.key)
+        console.log(action.payload.val())
+        let data = action.payload.val()
+        for(let i in data)
+        {
+          let user = data[i];
+          user.key = i
+          console.log(user, i);
+          this.myProducts.push(user)
+        }
+      });
+
   }
 
   //----------------------------------------------esta funcion era una alerta al oprimir la card

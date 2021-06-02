@@ -4,3 +4,9 @@ ion-content{
 .cardopac{     
     background: rgba(255,255,255,0.8);      
 } 
+
+ion-button{
+    --background-activated: greenyellow;
+    --background-focused: red;
+
+}

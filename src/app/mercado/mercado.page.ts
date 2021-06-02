@@ -19,16 +19,19 @@ export class MercadoPage implements OnInit {
   number:any;
 
   textoBuscar: '';
-  
+
+  posicion: string;  
 
   constructor(private db: AngularFireDatabase, private alert:AlertController) { }
 
   ngOnInit() {
     console.log(this.productos);
+
   }
 
   cosechas()
   {
+    this.posicion = 'de Cosechas';
     this.keyRef = this.db.object('Cultivo');
     console.log(this.keyRef);
     this.itemRef = this.keyRef;
@@ -61,6 +64,7 @@ export class MercadoPage implements OnInit {
 
   ofertas()
   {
+    this.posicion = 'de Comercio'
     this.keyRef = this.db.object('Oferta');
     console.log(this.keyRef);
     this.itemRef = this.keyRef;
@@ -93,6 +97,7 @@ export class MercadoPage implements OnInit {
 
   pedidos()
   {
+    this.posicion = 'de Ofertas'
     this.keyRef = this.db.object('Pedido');
     console.log(this.keyRef);
     this.itemRef = this.keyRef;
@@ -156,11 +161,13 @@ export class MercadoPage implements OnInit {
 
   }
 
-    buscar(event)
-    {
-      console.log(event);
-      this.textoBuscar = event.detail.value;
-      console.log("eventototo", this.textoBuscar);
-    }
+  buscar(event)
+  {
+    console.log(event);
+    this.textoBuscar = event.detail.value;
+    console.log("eventototo", this.textoBuscar);
+  }
+
+  
 
 }

@@ -27,20 +27,28 @@ export class NuevaPublicacionPage implements OnInit {
     type:'',
     descript:'',
     count:'',
-    date:'',
+    dated:'',
     photo:'',
-    uid:''
+    uid:'',
+    price:'',
+    datep:'',
+    donation:false
   };
 
   name:string='';
   type:string='';
   descript:string='';
   count:string='';
-  date:string='';
+  dated:string='';
   photo:string='';
   uid:string='';
+  price:string='';
+  datep:string='';
+  donation:boolean=false;
 
   val: boolean = false;
+
+  time = new Date();
 
   constructor(private user:UserService, private fb:FormBuilder, private db:AngularFireDatabase, private alertController:AlertController, private active:ActivatedRoute, private route:Router) 
   {
@@ -55,9 +63,12 @@ export class NuevaPublicacionPage implements OnInit {
           this.productos.type = this.type = snap.val().type
           this.productos.descript = this.descript = snap.val().descript
           this.productos.count = this.count = snap.val().count
-          this.productos.date = this.date = snap.val().date
+          this.productos.dated = this.dated = snap.val().dated
           this.productos.photo = this.photo = snap.val().photo
           this.productos.uid = this.uid = snap.val().uid
+          this.productos.price = this.price = snap.val().price
+          this.productos.datep = this.datep = snap.val().datep
+          this.productos.donation = this.donation = snap.val().donation
           console.log(this.name);
           console.log(this.val);
           console.log(this.photo);
@@ -112,6 +123,13 @@ export class NuevaPublicacionPage implements OnInit {
 
     this.productos.photo = this.res
     this.productos.uid = this.user.getUid()
+
+    console.log(this.time);
+    console.log(this.time.getFullYear() + "-" + (this.time.getMonth()+1) + "-" + this.time.getDate());
+
+    this.productos.datep = this.time.getFullYear() + "-" + (this.time.getMonth()+1) + "-" + this.time.getDate();
+
+    this.productos.price = "$ " + this.productos.price + " cop";
 
     this.db.database.ref(path + '/'+ this.productos.uid + '/' + name).set(this.productos).then(f=>
     {

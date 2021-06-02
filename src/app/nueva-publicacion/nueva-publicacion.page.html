@@ -11,7 +11,7 @@
   <ion-card>
     <form id="form">
       <ion-item>
-        <ion-input *ngIf="name == ''" [(ngModel)]="productos.name" placeholder="Nombre del producto:" type="text"></ion-input>
+        <ion-input *ngIf="name == ''" [(ngModel)]="productos.name" placeholder="Nombre del producto:" type="text" autocapitalize="on" autocorrect="on"></ion-input>
         <ion-input *ngIf="name != ''" [(ngModel)]="name"  type="text" disabled="true"></ion-input>
       </ion-item>
       <ion-item>
@@ -22,15 +22,22 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-textarea [(ngModel)]="productos.descript" [(ngModel)]="descript" placeholder="Ingresa una descripción:"></ion-textarea>
+        <ion-textarea [(ngModel)]="productos.descript" [(ngModel)]="descript" placeholder="Ingresa una descripción:" autocapitalize="on" autocorrect="on"></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-input [(ngModel)]="productos.count" [(ngModel)]="count" placeholder="Ingresa cantidad diponible:" type="text"></ion-input>
+        <ion-input [(ngModel)]="productos.count" [(ngModel)]="count" placeholder="Ingresa cantidad diponible:" type="numeric"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label>Fecha de disponibilidad:
-            <ion-input [(ngModel)]="productos.date" [(ngModel)]="date" palceholder="Fecha de disponibilidad:" type="date"></ion-input>
+            <ion-input [(ngModel)]="productos.dated" [(ngModel)]="dated" palceholder="Fecha de disponibilidad:" type="date"></ion-input>
           </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="productos.price" [(ngModel)]="price" placeholder="Ingresa el precio por unidad:" type="numeric"></ion-input>
+      </ion-item>
+      <ion-item style="margin-right: 13px;">
+        <ion-label>¿Es una donación?</ion-label>
+        <ion-checkbox slot="end" [(ngModel)]="productos.donation" [(ngModel)]="donation"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label>Adjunte una foto:

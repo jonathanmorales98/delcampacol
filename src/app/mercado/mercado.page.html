@@ -3,7 +3,7 @@
     <ion-button slot="start">
       <ion-back-button defaultHref="/index-cosechador"></ion-back-button>
     </ion-button>
-    <ion-title>Mercado</ion-title>
+    <ion-title>Mercado {{posicion}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
         <ion-grid>
           <ion-row>
             <ion-col size="4">
-              <ion-button (click)="cosechas()">Cosechas</ion-button>
+              <ion-button (click)="cosechas()" >Cosechas</ion-button>
             </ion-col>
             <ion-col size="4">
               <ion-button (click)="ofertas()">Comercio</ion-button>
@@ -26,6 +26,7 @@
     
   <h3 *ngIf="productos == []">Escoja una opción</h3>
   <ion-card *ngFor="let item of productos | filtro:textoBuscar" (click)="info(item.uid)">
+    <ion-badge *ngIf="item.donation == true" color="warning">Donación</ion-badge>
     <ion-item *ngIf="item == null">No hay productos, vuelva pronto.</ion-item>
     <ion-item>
       <ion-grid>
@@ -33,14 +34,31 @@
           <ion-col>
             <p>{{item.name}}</p>
             <p>Cantidad: {{item.count}}</p>
-            <p>Disponibilidad: {{item.date}}</p>
+            <p>Precio por unidad: {{item.price}}</p>
           </ion-col>
           <ion-col >
             <ion-img src="{{item.photo}}"></ion-img>
           </ion-col>
         </ion-row>
         <ion-row>
-          <p>{{item.descript}}</p>
+          <ion-col>
+            <p>Fecha publicación: {{item.datep}}</p>
+          </ion-col>
+          <ion-col >
+            <p>Fecha disposición: {{item.dated}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label>
+              <ion-text>
+                <h2>Descripción:</h2>
+              </ion-text>
+              <ion-text>
+                <h3>{{item.descript}}</h3>
+              </ion-text>
+            </ion-label>
+          </ion-item>
         </ion-row>
       </ion-grid>
 

@@ -18,21 +18,41 @@
       
     </ion-item-options>
 
-    <ion-card >
-      <ion-item>
+    <ion-card>
+      
+      <ion-badge *ngIf="item.donation == true" color="warning">Donación</ion-badge>
+
+      <ion-item style="background-color: red;">
         <ion-grid>
           <ion-row>
             <ion-col>
               <p>{{item.name}}</p>
               <p>Cantidad: {{item.count}}</p>
-              <p>Disponibilidad: {{item.date}}</p>
+              <p>Precio por unidad: {{item.price}}</p>
             </ion-col>
-            <ion-col >
+            <ion-col style="margin-top: 20px;">
               <ion-img src="{{item.photo}}"></ion-img>
             </ion-col>
           </ion-row>
           <ion-row>
-            <p>{{item.descript}}</p>
+            <ion-col>
+              <p>Fecha publicación: {{item.datep}}</p>
+            </ion-col>
+            <ion-col >
+              <p>Fecha disposición: {{item.dated}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-item>
+              <ion-label>
+                <ion-text>
+                  <h2>Descripción:</h2>
+                </ion-text>
+                <ion-text>
+                  <h3>{{item.descript}}</h3>
+                </ion-text>
+              </ion-label>
+            </ion-item>
           </ion-row>
         </ion-grid>
       </ion-item>
